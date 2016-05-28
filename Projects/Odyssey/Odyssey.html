@@ -1,0 +1,191 @@
+<!-- Use transitional XHTML to pass W3C validation while embedding Youtube videos -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Robot mobile &agrave; base de Raspberry Pi</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Odyssey</h1>
+			<a href="Robot_Terminated_1.jpg"><img src="Robot_Terminated_1.jpg" width="320" alt="Robot termin&eacute;" /></a>
+
+			<p>
+				Odyssey est le nom donn&eacute; au projet de fin d'&eacute;tudes que deux de mes camarades et moi-m&ecirc;me avons r&eacute;alis&eacute; lors de notre derni&egrave;re ann&eacute;e d'&eacute;cole d'ing&eacute;nieur.<br />
+				Nous avons con&ccedil;u et fabriqu&eacute; un robot mobile en partant de z&eacute;ro, sur la base d'un sujet que nous avons nous-m&ecirc;mes propos&eacute;.<br />
+				Le but du projet &eacute;tait de cr&eacute;er un robot muni d'une cam&eacute;ra qui pouvait &ecirc;tre contr&ocirc;l&eacute; depuis un PC ou un smartphone via une simple connexion WiFi.
+			</p>
+			
+			<h3>Caract&eacute;ristiques techniques</h3>
+			<p>
+				Voici un aper&ccedil;u des caract&eacute;ristiques techniques du robot :
+			</p>
+			<ul>
+				<li>Raspberry Pi mod&egrave;le B cadenc&eacute; &agrave; 700MHz et tournant sous Raspbian.</li>
+				<li>Microcontr&ocirc;leur PIC16F876 cadenc&eacute; &agrave; 3.68MHz d&eacute;di&eacute; au contr&ocirc;le des moteurs et &agrave; la mesure de la tension de la batterie.</li>
+				<li>Batterie constitu&eacute;e de 8 cellules NiMH de 2500mAh chacune.</li>
+				<li>Dongle WiFi N Edimax (Realtek 8188CUS) pour assurer la connexion WiFi.</li>
+				<li>Raspicam (1080p @ 30fps), utilis&eacute;e en mode 640x480 @ 24fps pour faciliter le streaming vid&eacute;o via WiFi.</li>
+				<li>Propulsion assur&eacute;e par deux servomoteurs &agrave; rotation continue DGServo S04NFSTD capables de fournir chacun un couple de 3500g/cm.</li>
+			</ul>
+			
+			<h3>Description du projet</h3>
+			<p>
+				L'acquisition de la vid&eacute;o et la gestion de la connexion WiFi sont assur&eacute;es par un mini ordinateur <a href="http://www.raspberrypi.org/">Raspberry Pi</a> fonctionnant sous Raspbian.<br />
+				Les t&acirc;ches "temps r&eacute;el" sont confi&eacute;es &agrave; un petit circuit bas&eacute; sur un microcontr&ocirc;leur PIC. Ce circuit contr&ocirc;le les moteurs et mesure la tension de la batterie.
+			</p>
+			<p>
+				Pourquoi avoir choisi le nom d'Odyssey ? Premi&egrave;rement parce que le projet promettait d'&ecirc;tre hom&eacute;rique, et parce que &ccedil;a sonnait bien ! Nous avons ensuite nomm&eacute; les diff&eacute;rents modules du robot selon des noms de dieux grecs.<br />
+				Le robot est ainsi compos&eacute; de deux modules :
+			</p>
+			
+			<ul>
+				<li><strong>Mercury</strong>, le dieu des voyages, est le circuit de contr&ocirc;le des moteurs.</li>
+			</ul>
+			<a href="Mercury_Upper_View.jpg"><img src="Mercury_Upper_View.jpg" width="320" alt="Circuit de Mercury vu de dessus" /></a>
+			
+			<ul>
+				<li>L'&OElig;il Unique, <del>Sauron</del> <strong>Polyphemus</strong> repr&eacute;sente la cam&eacute;ra du robot (une <a href="http://www.raspberrypi.org/products/camera-module/">Raspicam</a>) et le Raspberry Pi qui la g&egrave;re.</li>
+			</ul>
+			<a href="Raspberry_Pi_And_Raspicam.jpg"><img src="Raspberry_Pi_And_Raspicam.jpg" width="320" alt="Raspberry Pi et Raspicam" /></a>
+			
+			<p>
+				Les programmes ont aussi eu droit &agrave; leurs petits noms :
+			</p>
+			<ul>
+				<li>Le contr&ocirc;le du robot est assur&eacute; par <strong>Jupiter</strong>, dieu des dieux, qui est une application PC permettant de diriger le robot tout en visualisant la vid&eacute;o captur&eacute;e par la cam&eacute;ra.</li>
+			</ul>
+			<a href="Jupiter.png"><img src="Jupiter.png" width="320" alt="L'application PC Jupiter" /></a>
+			
+			<ul>
+				<li>Enfin, <strong>Io</strong>, un des satellites de Jupiter, rend possible le contr&ocirc;le du robot par un smartphone ou une tablette Android.</li>
+			</ul>
+			<a href="Io.png"><img src="Io.png" width="320" alt="L'application Android Io" /></a>
+				
+			<h3>Ch&acirc;ssis</h3>
+			<p>
+				Commen&ccedil;ons par d&eacute;crire la m&eacute;canique du robot, qui se veut robuste et simple &agrave; r&eacute;aliser.
+				Le ch&acirc;ssis du robot est constitu&eacute; de deux plaques superpos&eacute;es d'acier galvanis&eacute; de 2mm d'&eacute;paisseur. Ceci garantit un ch&acirc;ssis robuste et sert aussi de dissipateur thermique.
+			</p>
+			<a href="Robot_Timeline.png"><img src="Robot_Timeline.png" width="320" alt="Eclat&eacute;" /></a>
+			
+			<p>
+				Deux servomoteurs &agrave; rotation continue dot&eacute;s chacun d'un couple de 3.5Kg/cm propulsent le robot. Une bille en acier sert de roue folle.
+				Les servomoteurs sont fix&eacute;s sur le ch&acirc;ssis par de petites plaques en acier pli&eacute;es &agrave; l'aide d'un &eacute;tau.<br />
+				La premi&egrave;re photo montre la partie inf&eacute;rieure du ch&acirc;ssis, sur laquelle on peut distinguer le morceau de platine d'essai qui accueillera le circuit charg&eacute; du temps r&eacute;el.<br />
+				La seconde photo illustre la fixation des servomoteurs sur le ch&acirc;ssis.
+			</p>
+			<a href="Chassis_Base_Upper_View.jpg"><img src="Chassis_Base_Upper_View.jpg" width="320" alt="Partie inf&eacute;rieure du ch&acirc;ssis vue de dessus" /></a>
+			<a href="Chassis_Base_Downer_View.jpg"><img src="Chassis_Base_Downer_View.jpg" width="320" alt="Partie inf&eacute;rieure du ch&acirc;ssis vue de dessous" /></a>
+			
+			<p>
+				Voici une photo de la partie sup&eacute;rieure du ch&acirc;ssis. Elle supporte le Raspberry Pi, la Raspicam et la batterie.
+			</p>
+			<a href="Chassis_Upper_Part.jpg"><img src="Chassis_Upper_Part.jpg" width="320" alt="Partie sup&eacute;rieure du ch&acirc;ssis" /></a>
+			
+			<p>
+				La Raspicam est maintenue sur une couche de polystyr&egrave;ne isolant (son propre polystyr&egrave;ne d'emballage...) &agrave; l'aide de pattes de diodes soud&eacute;es sur un bout de circuit.
+				Ce bout de circuit est boulonn&eacute; &agrave; une &eacute;querre en acier elle-m&ecirc;me boulonn&eacute;e au ch&acirc;ssis. Comme on le verra sur des photos plus avanc&eacute;es, cette &eacute;querre sert aussi &agrave; maintenir la batterie.
+				J'ai d&ucirc; recourir &agrave; ce moyen car les trous de fixation de la Raspicam sont tr&egrave;s petits et sont entour&eacute;s de composants qui g&ecirc;nent le serrage par des &eacute;crous.
+			</p>
+			<a href="Raspicam_Support.jpg"><img src="Raspicam_Support.jpg" width="320" alt="Support de la Raspicam" /></a>
+			
+			<p>
+				Les deux parties du ch&acirc;ssis sont reli&eacute;es entre elles par 8 boulons de 4x40mm.
+			</p>
+			<a href="Chassis_Parts_Assembly.jpg"><img src="Chassis_Parts_Assembly.jpg" width="320" alt="Assemblage des deux parties du ch&acirc;ssis" /></a>
+			
+			<h3>Electronique</h3>
+			<p>
+				Le Raspberry Pi n'&eacute;tait pas en mesure de g&eacute;rer le PWM n&eacute;cessaire &agrave; chacun des servomoteurs. De plus, il ne disposait pas d'ADC et ne pouvait donc pas mesurer la tension de la batterie.<br />
+				J'ai ainsi con&ccedil;u un petit circuit autour d'un PIC16F876, un petit microcontr&ocirc;leur qui comporte 2 modules PWM hardware ainsi que plusieurs ADC. De plus, l'EEPROM interne du PIC permet d'y stocker les valeurs de calibrage de la vitesse de rotation des moteurs.<br />
+				Ce circuit se charge aussi d'alimenter tout le robot. La tension stable de 5V requise est obtenue &agrave; l'aide d'un r&eacute;gulateur lin&eacute;aire LDO LM1085 dont le rendement est beaucoup plus &eacute;lev&eacute; qu'un classique 7805. Ce composant est aussi capable de fournir un courant plus important qu'un 7805, ce qui est n&eacute;cessaire pour le robot.
+				En consommation maximale (heureusement jamais atteinte), le Raspberry Pi mod&egrave;le B consomme 700mA, la cam&eacute;ra 300mA, chaque moteur 400mA et un vieux dongle WiFi G USB monte jusqu'&agrave; 450mA. La somme de tous ces courants est sup&eacute;rieure &agrave; ce qu'un pauvre 7805 peut d&eacute;livrer.
+			</p>
+			<p>
+				Voici le sch&eacute;ma &eacute;lectrique du circuit :
+			</p>
+			<a href="Mercury.png"><img src="Mercury.png" width="320" alt="Sch&eacute;ma du circuit &eacute;lectronique Mercury" /></a>
+			
+			<p>
+				Le circuit a &eacute;t&eacute; r&eacute;alis&eacute; sur une plaque d'essai, comme le montrent les photos suivantes.
+			</p>
+			<a href="Mercury_Upper_View.jpg"><img src="Mercury_Upper_View.jpg" width="320" alt="Circuit de Mercury vu de dessus" /></a>
+			<a href="Mercury_Downer_View.jpg"><img src="Mercury_Downer_View.jpg" width="320" alt="Circuit de Mercury vu de dessous" /></a>
+			
+			<p>
+				Le r&eacute;gulateur de tension chauffe de fa&ccedil;on non n&eacute;gligeable &agrave; cause de la puissance qu'il dissipe en chaleur. Le ch&acirc;ssis du robot est alors utilis&eacute; comme dissipateur thermique.<br />
+				Attention ! La languette m&eacute;tallique du LM1085 est reli&eacute;e &agrave; Vout et non &agrave; la masse, le ch&acirc;ssis ne peut donc pas servir de plan de masse !
+			</p>
+			<a href="Voltage_Regulator_View.jpg"><img src="Voltage_Regulator_View.jpg" width="320" alt="Vue du r&eacute;gulateur de tension" /></a>
+			
+			<h3>Logiciel</h3>
+			<p>
+				Les programmes originaux destin&eacute;s au projet scolaire se trouvent sur le d&eacute;p&ocirc;t git suivant : <a href="https://github.com/DenisNicolasCarlus/odyssey">https://github.com/DenisNicolasCarlus/odyssey</a>.<br />
+				Je vais cependant d&eacute;tailler ici le fork du projet que j'ai fait pour le simplifier et &eacute;viter des d&eacute;pendances logicielles difficiles &agrave; satisfaire. Il se trouve sur le d&eacute;p&ocirc;t <a href="https://github.com/RICCIARDI-Adrien/Odyssey">https://github.com/RICCIARDI-Adrien/Odyssey</a>.
+			</p>
+			<p>
+				Le logiciel est compos&eacute; de quatre parties :
+			</p>
+			<ul>
+				<li><strong>Microcontroller</strong> contient le firmware du PIC ainsi que le sch&eacute;ma &eacute;lectrique du circuit.</li>
+				<li><strong>Network Control</strong> est le d&eacute;mon Linux qui tourne sur le Raspberry Pi. Il attend des commandes envoy&eacute;es sur le r&eacute;seau WiFi par le programme Remote et les communique au PIC.</li>
+				<li><strong>Manual Control</strong> est un programme de mise au point d&eacute;nu&eacute; de serveur (il faut se connecter sur le Raspberry Pi en SSH puis lancer le programme). Il dispose d'une interface ncurses minimale permettant de calibrer les diff&eacute;rentes vitesses des moteurs (vitesse en marche avant et en marche arri&egrave;re) et de tester le hardware du robot.</li>
+				<li><strong>Remote</strong> est une application graphique &eacute;crite en Java (dans le seul but de faire fonctionner le programme sous Windows et Mac en plus de Linux) qui envoie les commandes de l'utilisateur au d&eacute;mon Linux.</li>
+			</ul>
+			
+			<p>
+				Le flux vid&eacute;o issu de la cam&eacute;ra est captur&eacute; par le programme raspivid et envoy&eacute; par les airs au PC gr&acirc;ce &agrave; l'utilitaire socat. Il suffit d'utiliser le lecteur vid&eacute;o <a href="http://www.mplayerhq.hu/design7/news.html">MPlayer</a> sur le PC pour afficher le flux H264 brut.
+			</p>
+			<p>
+				Le Raspberry Pi fait point d'acc&egrave;s WiFi dans le but de simplifier la mise en &oelig;uvre du robot (ceci &eacute;vite de devoir connecter &agrave; chaque fois le robot au r&eacute;seau local du lieu o&ugrave; il se trouve).
+			</p>
+			<p>
+				Le d&eacute;mon Linux, &eacute;crit en C, est en fait un serveur TCP qui attend les commandes envoy&eacute;es par un client (l'application Remote). D&egrave;s qu'une commande est re&ccedil;ue, elle est communiqu&eacute;e au PIC &agrave; l'aide d'un lien s&eacute;rie &agrave; 115200 bauds c&acirc;bl&eacute; sur les UART mat&eacute;rielles du Raspberry Pi et du PIC.
+			</p>
+			<p>
+				Des scripts &agrave; la sauce System V init se chargent de lancer automatiquement les programmes n&eacute;cessaires au d&eacute;marrage du syst&egrave;me.
+			</p>
+			
+			<h3>Show room</h3>
+			<p>
+				L&agrave; o&ugrave; le robot montre son meilleur profil...
+			</p>
+			<a href="Robot_Terminated_1.jpg"><img src="Robot_Terminated_1.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_2.jpg"><img src="Robot_Terminated_2.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_3.jpg"><img src="Robot_Terminated_3.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_4.jpg"><img src="Robot_Terminated_4.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_5.jpg"><img src="Robot_Terminated_5.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_6.jpg"><img src="Robot_Terminated_6.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_7.jpg"><img src="Robot_Terminated_7.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_8.jpg"><img src="Robot_Terminated_8.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_9.jpg"><img src="Robot_Terminated_9.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_10.jpg"><img src="Robot_Terminated_10.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_11.jpg"><img src="Robot_Terminated_11.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_12.jpg"><img src="Robot_Terminated_12.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			
+			<p>
+				Et pour terminer, voici la vid&eacute;o de pr&eacute;sentation du projet :
+			</p>
+			<iframe class="Project_Video" width="853" height="480" src="https://www.youtube.com/embed/__diyME9J_s" frameborder="1"></iframe>
+			
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				Page cr&eacute;&eacute;e le 11/03/2015.<br />
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>

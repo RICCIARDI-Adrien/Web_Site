@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Text Games System</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Text Games System</h1>
+			
+			<p>
+				<img class="Centered_Image" src="Strawberry_PIC.png" alt="Strawberry PIC" />
+			</p>
+			
+			<p>
+				Que faire avec un microcontr&ocirc;leur <a href="http://www.microchip.com/wwwproducts/Devices.aspx?product=PIC16F876">PIC16F876</a> retrouv&eacute; au fond d'un tiroir ?<br />
+				Une minuscule console pour jouer &agrave; des jeux en mode texte, &eacute;videmment !
+			</p>
+			<p>
+				Cette console, baptis&eacute;e <strong>Text Games System</strong>, a pour but de faire tourner une version all&eacute;g&eacute;e du c&eacute;l&egrave;bre jeu <a href="http://fr.wikipedia.org/wiki/Chasse_au_Wumpus">Hunt the Wumpus</a>, ainsi que de petits jeux et programmes cr&eacute;&eacute;s pour l'occasion.<br />
+				La toute premi&egrave;re personne dans l'univers &agrave; avoir cod&eacute; un RPG pour microcontr&ocirc;leur PIC, <a href="http://dcarlus.no-ip.org/">Denis CARLUS</a>, a surnomm&eacute; cette machine <strong>Strawberry PIC</strong> (d'o&ugrave; l'incroyable photomontage en haut de la page) en l'honneur du <a href="http://www.raspberrypi.org/">Raspberry Pi</a>.
+			</p>
+			
+			<h3>Caract&eacute;ristiques techniques</h3>
+			
+			<p>
+				Le microcontr&ocirc;leur du Text Games System dispose exactement des m&ecirc;mes performances que celui du <a href="../A6/A6.html">A6</a>, il comporte seulement moins de pattes. Les Intel Core i7 n'ont donc qu'&agrave; bien se tenir !<br />
+				Plus s&eacute;rieusement,
+			</p>
+			<ul>
+				<li><strong>CPU : </strong>cadenc&eacute; &agrave; 4MHz, capable d'ex&eacute;cuter jusqu'&agrave; 1 MIPS.</li>
+				<li><strong>RAM : </strong>368 octets r&eacute;partis dans plusieurs banques (tant qu'&agrave; faire simple...).</li>
+				<li><strong>Stockage : </strong>EEPROM externe de 4096 octets. Le PIC y acc&egrave;de via le protocole I2C &agrave; une fr&eacute;quence de 333KHz.</li>
+				<li><strong>Communication : </strong>port s&eacute;rie RS-232 &agrave; 19200 bauds.</li>
+				<li><strong>Killer feature : </strong>Une superbe LED rouge tr&egrave;s peu ch&egrave;re et tr&egrave;s peu lumineuse command&eacute;e par le PIC.</li>
+			</ul>
+			<p>
+				Ces caract&eacute;ristiques laissent r&ecirc;veur, n'est-ce pas ?<br />
+				Voici quelques d&eacute;tails suppl&eacute;mentaires :
+			</p>
+			<ul>
+				<li>L'EEPROM de 4Ko sert &agrave; stocker les cha&icirc;nes de caract&egrave;res pr&eacute;sentes dans les jeux. En effet, il est tr&egrave;s lourd de stocker chaque caract&egrave;re dans la m&eacute;moire de code du PIC (constitu&eacute;e de 8192 mots de 14 bits), car chaque octet fait perdre un mot entier et qu'il n'est pas si simple d'acc&eacute;der &agrave; cette m&eacute;moire pour y lire autre chose que des instructions. La RAM est quant &agrave; elle trop petite pour pouvoir stocker toutes les cha&icirc;nes.</li>
+				<li>Le d&eacute;bit du port s&eacute;rie est le maximum qu'il est possible d'atteindre en maintenant une marge d'erreur tr&egrave;s faible lorsque le PIC est cadenc&eacute; &agrave; 4MHz.</li>
+			</ul>
+			
+			<h3>L'&eacute;lectronique plus en d&eacute;tail</h3>
+			
+			<p>
+				Et voici le sch&eacute;ma &eacute;lectrique. Il contient le strict minimum pour faire fonctionner le syst&egrave;me.
+			</p>
+			<a href="Schematics.png"><img src="Schematics.png" width="320" alt="Sch&eacute;ma" /></a>
+			<p>
+				L'alimentation est fournie par un bloc externe et r&eacute;gul&eacute;e par un classique 7805. La diode D1 prot&egrave;ge contre une inversion de polarit&eacute;.<br />
+				La conversion de niveaux RS-232 / TTL est assur&eacute;e par un bon vieux MAX232 et ses fid&egrave;les condensateurs.<br />
+				Le pin RA0, un des canaux du module ADC, est reli&eacute; &agrave; une antenne r&eacute;alis&eacute;e sur le circuit avec de la soudure. Cette antenne expose le pin de l'ADC aux perturbations externes et lui donne une valeur al&eacute;atoire. Cette valeur est utilis&eacute;e pour initialiser le g&eacute;n&eacute;rateur pseudo-al&eacute;atoire du syst&egrave;me.
+			</p>
+			<p>
+				Le sch&eacute;ma et le fichier source gEDA se trouvent sur le d&eacute;p&ocirc;t git du projet.
+			</p>
+			
+			<h3>Quelques photos</h3>
+			
+			<p>
+				Le bo&icirc;tier du Text Games System est compos&eacute; des deux plaques en acier galvanis&eacute; traditionnelles, superpos&eacute;es &agrave; l'aide de boulons de 4x40 mm, permettant ainsi d'enfoncer un clou avec le Text Games System ou de s'en servir comme cric pour changer un pneu.<br />
+				Voici quelques photos, o&ugrave;, comme toujours, le design est la pr&eacute;occupation principale...<br />
+				On remarque sur la premi&egrave;re photo : l'interrupteur ON/OFF, la LED, le connecteur s&eacute;rie (&agrave; gauche, dot&eacute; des pins RX, TX et GND) et le connecteur d'alimentation (&agrave; droite).
+			</p>
+			<a href="Front.jpg"><img src="Front.jpg" width="320" alt="Vue de dessus" /></a>
+			<p>
+				La seconde photo d&eacute;voile les entrailles de la b&ecirc;te, o&ugrave; se cache un circuit assembl&eacute; sur une plaque d'essai.
+			</p>
+			<a href="Side.jpg"><img src="Side.jpg" width="320" alt="Vue sur le c&ocirc;t&eacute;" /></a>
+			<p>
+				Et pour terminer, une photo montrant le syst&egrave;me en fonctionnement.
+			</p>
+			<a href="Running.jpg"><img src="Running.jpg" width="320" alt="En fonctionnement" /></a>
+			
+			<h3>Un peu de soft</h3>
+			
+			<p>
+				Le code source complet du syst&egrave;me et des programmes se trouve dans le d&eacute;p&ocirc;t git suivant : <a href="https://github.com/RICCIARDI-Adrien/Text_Games_System">https:&frasl;&frasl;github.com&frasl;RICCIARDI-Adrien&frasl;Text_Games_System</a>.
+			</p>
+			<p>
+				Le fichier &quot;Manuel de Programmation&quot; situ&eacute; dans le r&eacute;pertoire &quot;Documentation&quot; explique comment configurer un PC Windows pour compiler le code et comment cr&eacute;er des programmes (malheureusement, le compilateur utilis&eacute;, SourceBoost, ne fonctionne pas sous Linux).<br />
+				Il est possible de g&eacute;n&eacute;rer la documentation de la partie syst&egrave;me &agrave; l'aide de Doxygen, le fichier Doxyfile se trouve dans le r&eacute;pertoire &quot;Documentation&frasl;System&quot;.
+			</p>
+			
+			<p>
+				Le dossier &quot;Software&frasl;Sources&frasl;System&quot; contient une biblioth&egrave;que de fonctions qui permettent d'acc&eacute;der facilement aux fonctionnalit&eacute;s du Text Games System. Tous les programmes se basent sur ces fonctions pour acc&eacute;der &agrave; la plateforme.<br />
+				Voici une br&egrave;ve liste des applications disponibles :
+			</p>
+			<ul>
+				<li><strong>Bootloader : </strong>ce n'est pas une application &agrave; proprement parler, mais plut&ocirc;t un code r&eacute;sident dans la m&eacute;moire du PIC qui permet de programmer ce dernier via le port s&eacute;rie au lieu de devoir recourir &agrave; un programmateur.</li>
+				<li><strong>Calculator : </strong>quoi de mieux que des calculs entiers sur 128 bits pour pousser &agrave; bout le pauvre coeur PIC16, absolument pas con&ccedil;u pour le calcul ? Il ne se d&eacute;brouille pas si mal, vous en seriez &eacute;tonn&eacute;...</li>
+				<li><strong>Cassaforte : </strong>l'EEPROM externe fabriqu&eacute;e par Microchip a une dur&eacute;e de r&eacute;tention des donn&eacute;es garantie de 200 ans. Quoi de mieux pour y stocker durablement des donn&eacute;es ? Ce programme d&eacute;coupe la m&eacute;moire en de multiples zones dans lesquelles de petites quantit&eacute;s de donn&eacute;es peuvent &ecirc;tre sauvegard&eacute;es.</li>
+				<li><strong>Cellular Automaton : </strong>le fameux jeu de la vie de Conway, une fois de plus. Mais cette fois, 1920 cellules sont g&eacute;r&eacute;es avec 368 octets de RAM...</li>
+				<li><strong>ePIC Adventures : </strong>le seul, l'unique ! Le tout premier RPG &eacute;crit pour PIC par Denis CARLUS. Son site d&eacute;taille le jeu mieux que je ne le ferais.</li>
+				<li><strong>Games : </strong>le programme initial du Text Games System, compos&eacute; de plusieurs jeux (Hunt the Wumpus, calcul mental, loto, recherche d'un nombre) et de plusieurs <a href="http://fr.wikipedia.org/wiki/Demomaking">d&eacute;mos</a> visant &agrave; faire ramer votre &eacute;mulateur de tty.</li>
+				<li><strong>Tests : </strong>diff&eacute;rents tests visant &agrave; v&eacute;rifier le bon fonctionnement du syst&egrave;me, tels que la stabilit&eacute; de l'horloge ou la fiabilit&eacute; des m&eacute;moires.</li>
+				<li><strong>Timestamp Storage : </strong>un programme que je qualifierais presque d'utile compar&eacute; aux autres, car il est destin&eacute; &agrave; stocker dans l'EEPROM interne du PIC la date et l'heure envoy&eacute;es par un ordinateur reli&eacute; au port s&eacute;rie. Il sert uniquement &agrave; d&eacute;terminer &agrave; quel moment une coupure &eacute;lectrique a eu lieu, avec une granularit&eacute; d'une minute. Un Raspberry Pi se charge d'&eacute;crire l'heure toutes les minutes, ce qui &eacute;vite d'user sa carte SD et permet en m&ecirc;me temps de tester la robustesse de l'EEPROM interne du PIC. Pour &eacute;viter que les donn&eacute;es ne soient corrompues si la coupure survient lorsque les donn&eacute;es sont en cours d'&eacute;criture, un roulement sur deux zones m&eacute;moires diff&eacute;rentes est mis en place.</li>
+			</ul>
+			
+			<p>
+				Pour terminer, un aper&ccedil;u des d&eacute;mos incluses dans le programme Games.<br />
+				Ce GIF a &eacute;t&eacute; captur&eacute; avec le programme <a href="https://github.com/chjj/ttystudio">ttystudio</a>. Le rendu r&eacute;el est plus fluide.
+			</p>
+			<img class="Centered_Image" src="Text_Games_System_Demos.gif" alt="Demos" />
+			
+			<p></p>
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				Page cr&eacute;&eacute;e le 18/01/2015.<br />
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>

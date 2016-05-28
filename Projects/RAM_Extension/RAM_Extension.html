@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Extension de RAM - A6</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Extension de la RAM du A6</h1>
+			
+			<p>
+				Le A6 est d&eacute;sormais dot&eacute; d'un mini syst&egrave;me d'exploitation lui permettant de charger des programmes &agrave; partir du p&eacute;riph&eacute;rique de stockage de masse et de les ex&eacute;cuter.<br />
+				Il est aussi possible de programmer directement sur le A6 gr&acirc;ce &agrave; un programme qui interpr&egrave;te un langage assembleur invent&eacute; pour l'occasion.<br />
+				Cependant, cet assembleur requiert une grande quantit&eacute; de m&eacute;moire pour pouvoir ex&eacute;cuter efficacement un nombre important d'instructions.<br />
+				C'est pour cela qu'il m'a fallu rajouter une RAM externe de 8Ko, r&eacute;cup&eacute;r&eacute;e sur un vieux magn&eacute;toscope hors d'usage.
+			</p>
+			
+			<p>
+				Voici une vue de la carte m&egrave;re avec le nouveau module de RAM implant&eacute; :
+				
+				<a href="Side.jpg"><img src="Side.jpg" width="320" alt="Extension RAM vue de c&ocirc;t&eacute;" /></a>
+			</p>
+			
+			<h3>Sp&eacute;cifications</h3>
+			
+			<ul>
+				<li>RAM statique de 8192 octets</li>
+				<li>Temps d'acc&egrave;s au module (lecture et &eacute;criture) d'environ 20 &mu;s</li>
+				<li>Consommation de la puce RAM : 50 mA</li>
+				<li>Fonctionnement de la puce en adressant les octets uniquement (pas de paging)</li>
+			</ul>
+			
+			<h3>Fonctionnement</h3>
+			
+			<p>
+				Il faut tout d'abord pr&eacute;ciser que ce module appel&eacute; "RAM" ne correspond pas &agrave; de la RAM classique, c'est-&agrave;-dire que le processeur ne "voit" pas cette RAM et ne peut pas y acc&eacute;der automatiquement, comme il le fait avec les 368 octets de RAM embarqu&eacute;e.<br />
+				On peut consid&eacute;rer ce module comme une m&eacute;moire <a href="http://fr.wikipedia.org/wiki/M%C3%A9moire_virtuelle">swap</a> tr&egrave;s rapide d'acc&egrave;s et qui se comporte comme un tableau d'octets vu d'un langage de programmation.
+			</p>
+			
+			<p>
+				Plusieurs probl&egrave;mes se sont pos&eacute;s lors de la cr&eacute;ation de ce module :
+			</p>
+			
+			<ul>
+					<li>L'espace restant sur le circuit de la carte m&egrave;re &eacute;tait assez r&eacute;duit.</li>
+					<li>Le microcontr&ocirc;leur n'avait pas assez de broches pour piloter la puce de RAM de fa&ccedil;on conventionnelle (13 broches pour l'adresse, 8 broches pour les donn&eacute;es, 3 broches de contr&ocirc;le).</li>
+				</ul>
+			
+			<p>
+				Voici la place qui &eacute;tait disponible pour r&eacute;aliser le circuit :
+				<a href="Central_Unit_Without_RAM.jpg"><img src="Central_Unit_Without_RAM.jpg" width="320" alt="Unit&eacute; centrale sans RAM" /></a>
+				
+				Et voici le module de RAM implant&eacute; sur la carte m&egrave;re :<br />
+				Pour r&eacute;duire l'espace utilis&eacute;, il a fallu recourir aux deux circuits verticaux que l'on devine ci-dessous.
+				<a href="Central_Unit_With_RAM.jpg"><img src="Central_Unit_With_RAM.jpg" width="320" alt="Unit&eacute; centrale avec RAM" /></a>
+			</p>
+			
+			<h3>M&eacute;thode retenue</h3>
+			
+			<p>
+				La puce de RAM est reli&eacute;e &agrave; un bus de 8 bits pilot&eacute; par le microcontr&ocirc;leur.<br />
+				Sur ce bus sont aussi connect&eacute;s deux registres 8 bits provenant d'un vieux PC &agrave; base de 486.<br />
+				Les sorties de ces registres sont c&acirc;bl&eacute;es sur les lignes d'adresse de la puce de RAM.<br />
+				<br />
+				Le microntr&ocirc;leur envoie la partie basse de l'adresse de l'octet &agrave; lire ou &agrave; &eacute;crire au premier registre, puis la partie haute de l'adresse au second registre.<br />
+				Il ne lui reste plus qu'&agrave; configurer la puce de RAM pour effectuer une &eacute;criture ou une lecture et &agrave; faire transiter les donn&eacute;es sur le bus 8 bits.
+				<br />
+				De cette fa&ccedil;on, la vitesse d'acc&egrave;s au module de RAM n'est pas trop affaiblie par rapport &agrave; un protocole s&eacute;rie.
+			</p>
+			
+			<p>
+				L'image ci-dessous montre les diff&eacute;rents composants du module :
+				
+				<a href="Components_Detail.jpg"><img src="Components_Detail.jpg" width="320" alt="D&eacute;tail des composants" /></a>
+			</p>
+			
+			<p>
+				Pour terminer, voici une photo montrant "l'arri&egrave;re" du module :
+				
+				<a href="Rear.jpg"><img src="Rear.jpg" width="320" alt="Vue arri&egrave;re du module" /></a>
+			</p>
+			
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>

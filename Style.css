@@ -1,0 +1,277 @@
+/** @file Style.css
+ * The default website stylesheet.
+ * @author Adrien RICCIARDI
+ */
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Global settings */
+/*-----------------------------------------------------------------------------------------------*/
+body
+{
+	width: 1000px;
+	margin: auto; /* Center the page according to its width */ 
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	background-color: black;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Menu */
+/*-----------------------------------------------------------------------------------------------*/
+.Menu
+{
+	display: block;
+	position: absolute;
+	top: 0px; /* Put the menu on the upper part of the page */
+	height: 50px;
+	width: 800px; /* Page width - banner width */
+	/* Display the banner starting on the menu top left side */
+	background-image: url("Images/Banner.png");
+	background-repeat: no-repeat;
+	/* Remove the bullet points */
+	list-style-type: none;
+	/* Tabs location in the menu (close together) */
+	padding: 0px;
+	padding-left: 200px;
+	/* No space between the menu and the page body */
+	margin: 0px;
+}
+
+/* Menu tab in default state */
+.Menu li a, .Menu li a:visited, .Menu li a:active
+{
+	display: block;
+	float: left;
+	background-color: #585858; /* Grey */
+	width: 160px;
+	height: 50px;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	color: white; /* Font color */
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+/* Highlighted menu tab */
+.Menu li a:hover
+{
+	display: block;
+	float: left;
+	background-color: #DF7401; /* Orange */
+	width: 160px;
+	height: 50px;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	color: white;
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+/* Emphasize the selected tab */
+.Menu_Tab_Selected, #Menu_Tab_Selected_Clickable a
+{
+	display: block;
+	float: left;
+	background-color: #B40404; /* Red */
+	width: 160px;
+	height: 50px;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	color: white;
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Page body */
+/*-----------------------------------------------------------------------------------------------*/
+.Page_Body
+{
+	display: block;
+	/* Put the page body close to the menu */
+	position: absolute;
+	top: 50px;
+	width: 920px; /* Page width - left padding - right padding */
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 40px;
+	padding-right: 40px;
+	/* Background */
+	background-color: white;
+}
+
+/* Big titles */
+.Page_Body h1
+{
+	text-align: center;
+	color: white;
+	margin-bottom: 40px;
+	background-color: black;
+}
+
+/* Medium-sized titles */
+.Page_Body h3
+{
+	text-align: left;
+	color: white;
+	background-color: black;
+}
+
+.Page_Body em
+{
+	font-style: italic;
+	color: red;
+}
+
+.Page_Body strong
+{
+	font-weight: bold;
+	color: blue;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Images */
+/*-----------------------------------------------------------------------------------------------*/
+.Page_Body a:visited img, .Page_Body a:active img, .Page_Body a img
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	/* Image centering */
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.Page_Body a:hover img
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 2px;
+	border-color: #585858; /* Grey */
+	/* Image centering */
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.Centered_Image
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	/* Image centering */
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+#Home_Image
+{
+	display: block;
+	border: none;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.Project_Title_Image
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	/* Image centering */
+	margin-top: 40px;
+	margin-right: 60px; /* Give some space to the following title text */
+	margin-bottom: 40px;
+	float: left;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Links */
+/*-----------------------------------------------------------------------------------------------*/
+.Page_Body a, .Page_Body a:visited
+{
+	font-weight: normal;
+	color: #999999; /* Light grey */
+}
+
+.Page_Body a:hover, .Page_Body li a:hover
+{
+	font-weight: normal;
+	color: #6666FF; /* Blue */
+}
+
+/*-----------------------------------------------------------------------------------------------*/ 
+/* CV */
+/*-----------------------------------------------------------------------------------------------*/
+/* Sections title */
+.Page_Body h2
+{
+	display: block;
+	clear: both;
+	margin-top: 40px;
+	margin-left: auto; /* Center title */
+	margin-right: auto;
+	/* Background image */
+	background-image: url("Images/CV_Background.png");
+	background-repeat: no-repeat;
+	width: 600px;
+	height: 40px;
+	border: 1px solid #000000;
+	/* Text format */
+	color: white;
+	line-height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/*-----------------------------------------------------------------------------------------------*/ 
+/* Projects */
+/*-----------------------------------------------------------------------------------------------*/
+.Project_Video
+{
+	display: block;
+	/* Center the video */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*-----------------------------------------------------------------------------------------------*/ 
+/* Home page */
+/*-----------------------------------------------------------------------------------------------*/
+#Home_Counter_Text
+{
+	display: block;
+	float: left;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 10px;
+	color: green;
+}
+
+#Home_Counter_Image
+{
+	display: block;
+	border: none;
+}

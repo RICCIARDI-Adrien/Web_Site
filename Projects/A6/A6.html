@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Fabrication d'un mini ordinateur - A6</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Fabrication d'un mini ordinateur</h1>
+
+			<p>
+				Ce projet, nomm&eacute; <em>A6</em>, est n&eacute; du fait que je voulais programmer un hardware diff&eacute;rent de celui du Personal Computer cr&eacute;&eacute; par IBM.
+				J'ai donc d&eacute;cid&eacute; de bricoler une architecture "perso" que je puisse ensuite programmer et faire &eacute;voluer comme bon me semble.
+				Comme vous le montreront les sp&eacute;cifications, appeler cette machine "ordinateur" est un bien grand mot, car sa puissance de calcul et sa capacit&eacute; m&eacute;moire sont dignes d'une calculatrice de poche...<br /> <br />
+				Voici une image repr&eacute;sentant le clavier et l'&eacute;cran alphanum&eacute;rique reli&eacute;s &agrave; l'unit&eacute; centrale. (Cliquez pour agrandir les images).
+			
+				<a href="Central_Unit_With_Peripherals.jpg"><img src="Central_Unit_With_Peripherals.jpg" width="320" alt="Unit&eacute; centrale et p&eacute;riph&eacute;riques" /></a>
+			</p>
+
+			<h3>Sp&eacute;cifications techniques</h3>
+			<ul>
+				<li> <strong>CPU : </strong>Microchip PIC 16F877 cadenc&eacute; &agrave; 4MHz (1 MIPS) </li>
+				<li> <strong>RAM : </strong>368 octets (oui, octets...) </li>
+				<li> <strong>FLASH (m&eacute;moire programme) : </strong>8192 instructions </li>
+				<li> <strong>Fonctions p&eacute;riph&eacute;riques :</strong>
+				<ul>
+					<li>1 x Universal Asynchronous Receiver Transmitter (UART) norme RS-232, plus connu sous le nom de "Port s&eacute;rie", permettant de relier le A6 &agrave; un PC ou un autre p&eacute;riph&eacute;rique,</li>
+					<li>1 x Serial Peripheral Interface (SPI), destin&eacute; &agrave; communiquer avec le contr&ocirc;leur de l'&eacute;cran alphanum&eacute;rique,</li>
+					<li>2 x convertisseurs analogique-num&eacute;rique 10 bits,</li>
+					<li>1 x sortie PWM pouvant fournir 400mA@5V</li>
+				</ul> </li>
+			</ul>
+			<p>
+				La premi&egrave;re image repr&eacute;sente l'unit&eacute; centrale vue de dessus. La seconde laisse voir l'alimentation qui se trouve sous le panneau.
+				
+				<a href="Central_Unit.jpg"><img src="Central_Unit.jpg" width="320" alt="Unit&eacute; centrale" /></a>
+				<a href="Power_Supply.jpg"><img src="Power_Supply.jpg" width="320" alt="Alimentation" /></a>
+			</p>
+
+			<h3>P&eacute;riph&eacute;riques</h3>
+			<p>
+				<strong>Ecran alphanum&eacute;rique : </strong>cet &eacute;cran de 2 lignes X 16 caract&egrave;res est capable d'afficher les 127 premiers caract&egrave;res du code ASCII (il a fallu bricoler pour afficher les autres, comme les accents par exemple...).
+				Voici une photo de l'&eacute;cran vu de face et une autre montrant les circuits du contr&ocirc;leur et du module d'affichage :<br />
+				La pile 9V scotch&eacute;e au bas du bo&icirc;tier sert de contre-poids pour stabiliser l'&eacute;cran lorsqu'il est debout.
+
+				<a href="Display_Front.jpg"><img src="Display_Front.jpg" width="320" alt="Ecran vu de devant" /></a>
+				<a href="Display_Rear.jpg"><img src="Display_Rear.jpg" width="320" alt="Ecran vu de derri&egrave;re" /></a>
+			</p>
+
+			<p>
+				<strong>Clavier : </strong>le clavier est muni de 28 touches dispos&eacute;es plus ou moins selon l'ordre AZERTY ainsi que d'une touche Shift permettant de choisir un second caract&egrave;re par touche. La LED verte indique l'&eacute;tat de la touche Shift.
+				
+				<a href="Keyboard.jpg"><img src="Keyboard.jpg" width="320" alt="Clavier" /></a>
+			</p>
+			
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>

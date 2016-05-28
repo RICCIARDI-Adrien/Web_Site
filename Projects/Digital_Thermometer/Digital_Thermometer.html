@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Thermom&egrave;tre num&eacute;rique</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Thermom&egrave;tre num&eacute;rique</h1>
+			
+			<p>
+				Voici un thermom&egrave;tre &eacute;lectronique tr&egrave;s simple &agrave; r&eacute;aliser avec peu de composants.
+			</p>
+			<p>
+				Ce projet &eacute;tait un pr&eacute;texte pour me familiariser avec les microcontr&ocirc;leurs de la famille PIC18 de chez Microchip. Ainsi, le circuit &eacute;lectronique et le logiciel embarqu&eacute; sont tr&egrave;s simples.
+			</p>
+			<p>
+				La photo ci-dessous montre la r&eacute;alisation finale (comme vous pouvez le constater, mon cahier des charges ne sp&eacute;cifiait pas que le produit fini devait &ecirc;tre agr&eacute;able &agrave; regarder...). L'affichage sur l'&eacute;cran se fait &agrave; la fr&eacute;quence de 60Hz, ce qui convient parfaitement &agrave; l'oeil humain, mais c'est trop lent pour le capteur de l'appareil photo (car il n'est pas sujet &agrave; la persistence r&eacute;tinienne). C'est pourquoi on ne voit pas correctement les chiffres sur la photo, 
+			</p>
+			<a href="Presentation.jpg"><img src="Presentation.jpg" width="320" alt="Thermom&egrave;tre num&eacute;rique" /></a>
+			
+			<h3>Caract&eacute;ristiques techniques</h3>
+			
+			<ul>
+				<li><strong>Plage de mesure : </strong>0 &agrave; 50°C</li>
+				<li><strong>Pr&eacute;cision du capteur : </strong>0.5°C</li>
+				<li><strong>Pr&eacute;cision du thermom&egrave;tre : </strong>1°C</li>
+				<li><strong>Capteur de temp&eacute;rature : </strong><a href="http://www.ti.com/lit/ds/symlink/lm35.pdf">LM35DZ</a></li>
+				<li><strong>CPU : </strong>microcontr&ocirc;leur <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/39605F.pdf">PIC18F1220</a> cadenc&eacute; &agrave; 1 MHz</li>
+				<li><strong>Alimentation : </strong>secteur</li>
+				<li><strong>Consommation en mode veille : </strong>10 mA</li>
+				<li><strong>Consommation en mode affichage : </strong>de 90 à 100 mA selon les chiffres affich&eacute;s</li>
+			</ul>
+			
+			<h3>Description du fonctionnement</h3>
+			
+			<p>
+				Le thermom&egrave;tre affiche la temp&eacute;rature de la pi&egrave;ce en temps r&eacute;el, mais il est aussi capable d'afficher la plus haute temp&eacute;rature relev&eacute;e depuis qu'il est sous tension ainsi que la plus basse. Un dernier mode de fonctionnement &eacute;teint tous les voyants du thermom&egrave;tre mais ce dernier continue &agrave; relever la temp&eacute;rature. Ce mode &eacute;vite que les afficheurs du thermom&egrave;tre ne g&eacute;n&egrave;rent des lumi&egrave;res g&ecirc;nantes lorsque la pi&egrave;ce est plong&eacute;e dans l'obscurit&eacute;.
+			</p>
+			<p>
+				L'interface est constitu&eacute;e d'un unique bouton.<br />
+				Lors de la mise sous tension, le thermom&egrave;tre affiche la temp&eacute;rature actuelle de la pi&egrave;ce. La LED centrale jaune est allum&eacute;e.<br />
+				Une pression sur le bouton fait passer l'appareil en mode d'affichage de la plus basse temp&eacute;rature relev&eacute;e. La LED verte est allum&eacute;e.<br />
+				Une autre pression sur le bouton met l'appareil en &eacute;tat de veille apparente, mais il continue &agrave; fonctionner sans rien afficher.<br />
+				Une nouvelle pression sur le bouton affiche le plus haute temp&eacute;rature relev&eacute;e. La LED rouge est allum&eacute;e.<br />
+				Il suffit de r&eacute;appuyer sur le bouton pour afficher de nouveau la temp&eacute;rature actuelle. Les modes d'affichage forment un cycle.
+			</p>
+			<p>
+				Voici l'interface de l'appareil :
+			</p>
+			<a href="Interface.jpg"><img src="Interface.jpg" width="320" alt="Interface" /></a>
+			
+			<h3>Circuit &eacute;lectronique</h3>
+			
+			<p>
+				Le microcontr&ocirc;leur dispose de nombreux p&eacute;riph&eacute;riques, ce qui limite grandement le nombre de composants externes.<br />
+				Ceci est la repr&eacute;sentation sch&eacute;matique du circuit :
+			</p>
+			<a href="Schematics.png"><img src="Schematics.png" width="320" alt="Sch&eacute;ma" /></a>
+			<p>
+				Voici une rapide description du fonctionnement :
+			</p>
+			<ul>
+				<li>Le microcontr&ocirc;leur est cadenc&eacute; &agrave; 1MHz par son oscillateur interne.<br /><br /></li>
+				<li>Le capteur de temp&eacute;rature sort une tension analogique de 10mV/°C. Il est reli&eacute; au canal n°0 du convertisseur analogique-num&eacute;rique du microcontr&ocirc;leur. Ce module permet au microcontr&ocirc;leur de convertir la tension analogique comprise entre 0 et 5V en un nombre compris entre 0 et 1023. Il est ainsi possible d'avoir une repr&eacute;sentation de la valeur de la tension issue du capteur.<br /><br /></li>
+				<li>A cause du faible nombre de pattes disponible sur le microcontr&ocirc;leur, l'affichage sur les afficheurs 7 segments a d&ucirc; &ecirc;tre multiplex&eacute;. Chaque afficheur est rafra&icirc;chi &agrave; la fr&eacute;quence de 60Hz. Le port B du PIC envoie les donn&eacute;es repr&eacute;sentant l'image &agrave; afficher, tandis que les sorties 6 et 7 du port A se chargent de s&eacute;lectionner l'afficheur qui recevra les donn&eacute;es. Les deux transistors PNP BC558 servent d'interface de puissance car le courant demand&eacute; par chaque afficheur est trop important pour &ecirc;tre fourni par le PIC.<br /><br /></li>
+				<li>L'alimentation +5V est fournie par un L7805C. Ce r&eacute;gulateur se comporte exactement comme un classique 7805 mais int&egrave;gre en plus une diode autorisant une tension de sortie sup&eacute;rieure &agrave; celle d'entr&eacute;e, ce qui grillerait un 7805 "normal". C'est pour cela que j'ai pu mettre le condensateur de 47&mu;F directement sur la sortie. Ce condensateur est une r&eacute;serve d'&eacute;nergie utilis&eacute;e lorsque les segments des afficheurs s'allument. Cela &eacute;vite que le microcontr&ocirc;leur ne subisse une chute de tension &agrave; ce moment pr&eacute;cis.<br /><br /></li>
+				<li>Le microcontr&ocirc;leur est capable de fournir un courant de 25mA par patte. Comme les LEDs ne consomment que 15mA environ, elles sont directement reli&eacute;es aux sortie 2, 3 et 4 du port A.<br /><br /></li>
+				<li>Pour terminer, l'unique bouton est &agrave; la masse lorsqu'il est rel&acirc;ch&eacute; ou &agrave; +5V lorsque l'on appuie dessus.</li>
+			</ul>
+			
+			<h3>Logiciel embarqu&eacute;</h3>
+			
+			<p>
+				Le code source (ainsi que le sch&eacute;ma pr&eacute;c&eacute;dent) sont en anglais dans le but de les rendre accessibles &agrave; une plus grande majorit&eacute; de personnes.<br />
+				Le code source sera peut-&ecirc;tre disponible sur GitHub, m&ecirc;me s'il est loin d'&ecirc;tre optimis&eacute; ! Il a &eacute;t&eacute; &eacute;crit en C pour l'environnement de d&eacute;veloppement gratuit <a href="http://www.sourceboost.com/CommonDownload.html">SourceBoost</a> version 6.97, mais il devrait compiler correctement avec les versions ult&eacute;rieures (<em>NON TEST&Eacute;</em>).
+			</p>
+			<p>
+				Le programme est constitu&eacute; de plusieurs machines d'&eacute;tats :
+			</p>
+			<ul>
+				<li>Le module Timer0 g&eacute;n&egrave;re une interruption &agrave; une fr&eacute;quence de 120Hz pour rafra&icirc;chir un afficheur sur deux. De cette fa&ccedil;on, chaque afficheur est rafra&icirc;chi &agrave; une fr&eacute;quence de 60Hz.<br /><br /></li>
+				<li>La boucle principale d&eacute;tecte si l'utilisateur a appuy&eacute; sur le bouton. Si oui, une machine d'&eacute;tats d&eacute;termine le nouveau mode d'affichage en fonction de l'ancien.<br /><br /></li>
+				<li>En fonction du mode d'affichage choisi, les bonnes valeurs sont converties et affich&eacute;es &agrave; l'&eacute;cran.<br /><br /> </li>
+				<li><strong>Version 1.1 : </strong>Le module Timer1 g&eacute;n&egrave;re une interruption toutes les secondes pour lire la valeur du capteur de temp&eacute;rature. Ainsi, l'affichage n'est mis &agrave; jour qu'une seule fois par seconde, ce qui permet de mieux visualiser une incertitude entre deux temp&eacute;ratures proches.<br /><br /></li>
+			</ul>
+
+			<p>
+				Les images suivantes montrent la meilleure stabilit&eacute; de l'affichage :
+			</p>
+
+			<img class="Centered_Image" src="Maximum_Temperature.jpg" alt="Affichage temp&eacute;rature maximale" />
+			<img class="Centered_Image" src="Current_Temperature.jpg" alt="Affichage temp&eacute;rature actuelle" />
+			<img class="Centered_Image" src="Minimum_Temperature.jpg" alt="Affichage temp&eacute;rature minimale" />
+						
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>

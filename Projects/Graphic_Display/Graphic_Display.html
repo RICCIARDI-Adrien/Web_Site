@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Ecran graphique - A6</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Ecran graphique pour le A6</h1>
+			
+			<p>
+				L'&eacute;cran aplhanum&eacute;rique qui &eacute;quipe le A6 n'est pas capable d'afficher des images ou m&ecirc;me des motifs.
+				Dans le but de jouer au fameux jeu "<a href="http://fr.wikipedia.org/wiki/Pong">Pong</a>" sur le A6, j'ai d&ucirc; fabriquer une sorte de minuscule &eacute;cran graphique permettant d'afficher des images avec une r&eacute;solution Full HD de 10 pixels par 7 pixels...<br />
+				Cet &eacute;cran est reli&eacute; &agrave; l'unit&eacute; centrale via la liaison s&eacute;rie 9600 bauds. Cela assure une vitesse de rafra&icirc;chissement d'environ 85 images par seconde, ce qui est largement suffisant pour rendre cr&eacute;dible les "animations".<br />
+			</p>
+
+			<p>
+				Voici deux photos montrant la r&eacute;alisation de l'&eacute;cran. Comme pour son homologue alphanum&eacute;rique, les contre-poids sont r&eacute;alis&eacute;s avec des piles 9V usag&eacute;es...
+				<a href="Front.jpg"><img src="Front.jpg" width="320" alt="Ecran vu de devant" /></a>
+				<a href="Rear.jpg"><img src="Rear.jpg" width="320" alt="Ecran vu de derri&egrave;re" /></a>
+			</p>
+
+			<h3>Description du fonctionnement</h3>
+			<p>
+				L'&eacute;cran est compos&eacute; de deux matrices d'affichage &agrave; LED qui font chacune 5 pixels de large sur 7 pixels de haut. L'affichage fonctionne selon le m&ecirc;me principe que celui des &eacute;crans que nous utilisons quotidiennement. En voici une br&egrave;ve description :<br />
+				le choix d'une demi-ligne de 5 pixels est assur&eacute; par un multiplexeur, aid&eacute; de transistors pour fournir la puissance n&eacute;cessaire. Le microcontr&ocirc;leur (un PIC16F628 de Microchip) s&eacute;lectionne une demi-ligne en donnant son code au multiplexeur, affiche les 5 pixels correspondants, puis d&eacute;selectionne la demi-ligne et passe &agrave; la suivante. Gr&acirc;ce &agrave; une vitesse d'affichage relativement &eacute;lev&eacute;e et &agrave; la persistance r&eacute;tinienne, notre oeil voit l'image dans son int&eacute;gralit&eacute;.
+			</p>
+
+			<p>
+				Voici un bref aper&ccedil;u des composants de l'&eacute;cran :
+				<a href="Components_Detail.jpg"><img src="Components_Detail.jpg" width="320" alt="Aper&ccedil;u des composants" /></a>
+			</p>
+
+			<h3>Applications</h3>
+			<p>
+				Voici maintenant l'&eacute;cran en action avec une &eacute;ni&egrave;me version de Pong jouable &agrave; deux...
+				<a href="Pong.jpg"><img src="Pong.jpg" width="320" alt="Pong" /></a>
+			</p>
+
+			<p>
+				... ou sinon affichant une simulation du <a href="http://fr.wikipedia.org/wiki/Jeu_de_la_vie">Jeu de la vie</a>, l'automate cellulaire cr&eacute;&eacute; par John Conway.
+				<a href="Game_Of_Life.jpg"><img src="Game_Of_Life.jpg" width="320" alt="Jeu de la vie" /></a>
+			</p>
+
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>

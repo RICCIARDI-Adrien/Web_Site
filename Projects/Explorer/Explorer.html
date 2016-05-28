@@ -1,0 +1,239 @@
+<!-- Use transitional XHTML to pass W3C validation while embedding Youtube videos -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Robot mobile avec capteur &agrave; ultrasons</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Explorer</h1>
+			<a href="Robot_Terminated_2.jpg"><img src="Robot_Terminated_2.jpg" width="320" alt="Robot termin&eacute;" /></a>
+
+			<p>
+				Le robot Explorer, comme son nom l'indique, doit pouvoir se d&eacute;placer de fa&ccedil;on autonome dans un lieu inconnu pour en explorer tous les recoins.<br />
+				Le but de ce robot est de cr&eacute;er une intelligence artificielle capable de diriger correctement le robot en misant tout sur un unique capteur de distance.
+			</p>
+			
+			<h3>Caract&eacute;ristiques techniques</h3>
+			<ul>
+				<li>Mesure de la distance par un unique capteur &agrave; ultrasons plac&eacute; &agrave; l'avant (portée jusqu'à 4m, précision 1cm).</li>
+				<li>Contr&ocirc;le autonome du robot par un puissant microcontr&ocirc;leur (64MHz/16MIPS).</li>
+				<li>Interface de communication entre le PC et le robot simple et efficace (notamment pour mettre rapidement &agrave; jour le firmware).</li>
+				<li>Ch&acirc;ssis blind&eacute; r&eacute;sistant aux in&eacute;vitables chocs avec les obstacles.</li>
+				<li>Moteurs au couple &eacute;norme (3.5 Kg/cm) pour que le robot puisse se d&eacute;bloquer de la plupart des situations.</li>
+				<li>Alimentation surdimensionn&eacute;e (8 accus NiMH de 2500mAh) capable de fournir suffisamment d'&eacute;nergie aux moteurs pendant longtemps.</li>
+			</ul>
+			
+			<h3>M&eacute;canique</h3>
+			<p>
+				Le ch&acirc;ssis du robot est fortement inspir&eacute; de celui du projet <a href="../Odyssey/Odyssey.html">Odyssey</a>. Il est compos&eacute; de deux plaques m&eacute;talliques superpos&eacute;es maintenues par des boulons. Deux servomoteurs &agrave; rotation continue de type S04NF sont fix&eacute;s au ch&acirc;ssis &agrave; l'aide de corni&egrave;res d'aluminium pr&eacute;vues &agrave; cet effet, un fixation bien plus simple que celle employ&eacute;e sur Odyssey.<br />
+				Une bille en acier boulonn&eacute;e sur le ch&acirc;ssis sert de roue folle et assure une suspension particuli&egrave;rement souple &agrave; l'ensemble...
+			</p>
+			<p>
+				La construction du robot est d&eacute;taill&eacute;e dans les photos ci-apr&egrave;s. L'&eacute;chelle des pi&egrave;ces est donn&eacute;e par un stylo Bic pr&eacute;sent dans certaines photos.
+			</p>
+			
+			<p>
+				Tout commence par deux plaques d'acier galvanis&eacute; de 20 x 9cm et de 2mm d'&eacute;paisseur.
+			</p>
+			<a href="Steel_Plates.jpg"><img src="Steel_Plates.jpg" width="320" alt="Plaques en acier" /></a>
+			
+			<p>
+				Une des plaques va constituer la partie inf&eacute;rieure du ch&acirc;ssis. Elle est perc&eacute;e aux dimensions des corni&egrave;res des servomoteurs qui sont ensuite boulonn&eacute;es dessus.
+			</p>
+			<a href="Bottom_1.jpg"><img src="Bottom_1.jpg" width="320" alt="Partie inf&eacute;rieure + corni&egrave;res" /></a>
+			<p>
+				Voici l'autre c&ocirc;t&eacute; de ce d&eacute;but de ch&acirc;ssis.
+			</p>
+			<a href="Bottom_2.jpg"><img src="Bottom_2.jpg" width="320" alt="Partie inf&eacute;rieure + corni&egrave;res" /></a>
+			
+			<p>
+				Vient ensuite la roue folle...
+			</p>
+			<a href="Bottom_3.jpg"><img src="Bottom_3.jpg" width="320" alt="Partie inf&eacute;rieure + roue folle" /></a>
+			
+			<p>
+				...puis les boulons qui accueilleront la partie sup&eacute;rieure du ch&acirc;ssis.
+			</p>
+			<a href="Bottom_4.jpg"><img src="Bottom_4.jpg" width="320" alt="Partie inf&eacute;rieure + boulons partie sup&eacute;rieure" /></a>
+			
+			<p>
+				Les servomoteurs &agrave; rotation continue...
+			</p>
+			<a href="Servomotors.jpg"><img src="Servomotors.jpg" width="320" alt="Servomoteurs" /></a>
+			<p>
+				...peuvent alors &ecirc;tre mont&eacute;s dans les corni&egrave;res.
+			</p>
+			<a href="Bottom_5.jpg"><img src="Bottom_5.jpg" width="320" alt="Partie inf&eacute;rieure + servomoteurs" /></a>
+			
+			<p>
+				Il est temps de monter le r&eacute;gulateur de tension muni de sa connectique.<br />
+				Le r&eacute;gulateur est mont&eacute; directement sur le ch&acirc;ssis pour s'en servir comme d'un dissipateur thermique, ce qui &eacute;vite de recourir &agrave; un radiateur.<br />
+				La partie inf&eacute;rieure du ch&acirc;ssis est pr&ecirc;te &agrave; accueillir le circuit imprim&eacute;.
+			</p>
+			<a href="Bottom_6.jpg"><img src="Bottom_6.jpg" width="320" alt="Partie sup&eacute;rieure + r&eacute;gulateur de tension" /></a>
+			
+			<p>
+				On peut maintenant s'occuper de la partie sup&eacute;rieure du ch&acirc;ssis. Il faut commencer par percer les trous n&eacute;cessaires aux composants mont&eacute;s en fa&ccedil;ade (led, interrupteur et connectique s&eacute;rie), puis les boulonner.<br />
+				Les boulons charg&eacute;s de maintenir le pack d'accus sont eux-aussi mis en place.
+			</p>
+			<a href="Top_1.jpg"><img src="Top_1.jpg" width="320" alt="Partie sup&eacute;rieure" /></a>
+			
+			<p>
+				Le coupleur de piles est alors soud&eacute; sur un bout de plaque de cuivre car les c&acirc;bles de ces coupleurs sont toujours de pi&egrave;tre qualit&eacute; et se coupent rapidement.
+				Il n'est ainsi pas n&eacute;cessaire de d&eacute;monter le ch&acirc;ssis pour ressouder le coupleur lorsqu'il se casse.
+			</p>
+			<a href="Top_2.jpg"><img src="Top_2.jpg" width="320" alt="Partie sup&eacute;rieure + coupleur de piles" /></a>
+			
+			<p>
+				La connectique avec le circuit imprim&eacute;e est alors soud&eacute;e sur les composants de la plaque sup&eacute;rieure.<br />
+				La partie sup&eacute;rieure est elle aussi achev&eacute;e.
+			</p>
+			<a href="Top_3.jpg"><img src="Top_3.jpg" width="320" alt="Partie sup&eacute;rieure + connectique" /></a>
+			
+			<p>
+				Le ch&acirc;ssis est termin&eacute;. Il ne reste plus qu'&agrave; assembler les deux parties.<br />
+				Passons maintenant &agrave; l'&eacute;lectronique du robot.
+			</p>
+			
+			<h3>Electronique</h3>
+			<p>
+				Le circuit &eacute;lectronique est r&eacute;duit au strict minimum. L'alimentation fournie par 8 accumulateurs NiMH de 2500mAh (ou 8 piles AA standards) est r&eacute;gul&eacute;e par un LM1085, un r&eacute;gulateur lin&eacute;aire LDO de tr&egrave;s bonne facture.<br />
+				La tension de la batterie est ramen&eacute;e via un pont diviseur sur une entr&eacute;e analogique du microcontr&ocirc;leur pour que ce dernier puisse la mesurer.<br />
+				Un microcontr&ocirc;leur <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/41412F.pdf">PIC18F26K22</a> s'occupe de r&eacute;cup&eacute;rer la sortie du capteur de distance et d'activer les moteurs en cons&eacute;quence.<br />
+				Ce microcontr&ocirc;leur a &eacute;t&eacute; choisi pour de nombreuses raisons :<br />
+			</p>
+			<ul>
+				<li>La taille importante de ses m&eacute;moires (64Ko de flash et presque 4Ko de RAM, ce qui est &eacute;norme pour un PIC).</li>
+				<li>Ses nombreux timers (au nombre de 6, dont 3 sont sur 16 bits).</li>
+				<li>L'architecture PIC18 permettant d'avoir des interruptions de haute priorit&eacute; tr&egrave;s rapides (n&eacute;cessaires pour le capteur de distance).</li>
+				<li>L'oscillateur haute pr&eacute;cision int&eacute;gr&eacute; cadenc&eacute; jusqu'&agrave; 64MHz (16 MIPS).</li>
+				<li>Le multiplieur hardware disponible dans l'architecture PIC18.</li>
+			</ul>
+			
+			<p>
+				Voici le sch&eacute;ma tr&egrave;s simple de l'&eacute;lectronique du robot.<br />
+				Le sch&eacute;ma a &eacute;t&eacute; r&eacute;alis&eacute; avec CadSoft Eagle 6.6.0 mais l'image a &eacute;t&eacute; export&eacute;e avec Eagle 7.5.0, qui ne semble pas compl&egrave;tement d'accord avec le vieux format de fichier...<br />
+				Les fichiers source sont disponibles sur <a href="https://github.com/RICCIARDI-Adrien/Explorer">GitHub</a>, tout comme les codes sources des programmes.
+			</p>
+			<a href="Schematics.png"><img src="Schematics.png" width="320" alt="Sch&eacute;ma &eacute;lectrique" /></a>
+			
+			<p>
+				J'ai choisi d'utiliser un capteur de distance <a href="https://docs.google.com/document/d/1Y-yZnNhMYy7rwhAgyL_pfa39RsB-x2qR4vP8saG73rE/edit">SR-04</a> pour voir ce qu'il avait dans le ventre.<br />
+				Je peux maintenant affirmer qu'il fonctionne tr&egrave;s bien, avec une bonne port&eacute;e (3m) et une grande pr&eacute;cision.
+			</p>
+			<p>
+				La mise en &oelig;uvre du capteur est assez simple si l'on dispose d'un microcontr&ocirc;leur rapide.
+			</p>
+			<ol>
+				<li>Envoyer une impulsion d'au moins 10µs sur le pin TRIGGER.</li>
+				<li>Le capteur va alors envoyer plusieurs salves d'ultrasons et mesurer le temps qu'elles mettent &agrave; revenir.</li>
+				<li>Le capteur va r&eacute;pondre en passant son pin ECHO &agrave; l'&eacute;tat haut pendant un certain nombre de microsecondes correspondant &agrave; la distance mesur&eacute;e avec l'objet le plus proche.</li>
+			</ol>
+			<p>
+				Il faut compter pr&eacute;cis&eacute;ment le nombre de microsecondes puis le diviser par 58 pour obtenir une distance en centim&egrave;tres.<br />
+				La datasheet du capteur pr&eacute;cise que la mesure la plus longue (c'est-&agrave;-dire qu'il n'y a aucun objet devant le capteur) dure 38ms.<br />
+				C'est l&agrave; que l'on voit tout l'int&ecirc;ret de prendre un PIC18 et de r&eacute;server les interruptions de haute priorit&eacute; au capteur de distance.
+			</p>
+			
+			<p>
+				Le circuit a &eacute;t&eacute; r&eacute;alis&eacute; sur une plaque d'essai pour plus de facilit&eacute;, mais le projet Eagle contient aussi un circuit rout&eacute; et tous les gerbers n&eacute;cessaires &agrave; sa r&eacute;alisation.<br />
+				Voici le circuit vu de dessus :
+			</p>
+			<a href="Circuit_Top.jpg"><img src="Circuit_Top.jpg" width="320" alt="Circuit vu de dessus" /></a>
+			
+			<p>
+				Et le circuit vu de dessous.
+			</p>
+			<a href="Circuit_Bottom.jpg"><img src="Circuit_Bottom.jpg" width="320" alt="Circuit vu de dessous" /></a>
+			
+			<p>
+				Enfin, voici une photo du circuit mont&eacute; sur le ch&acirc;ssis.
+			</p>
+			<a href="Bottom_7.jpg"><img src="Bottom_7.jpg" width="320" alt="Circuit mont&eacute; sur le ch&acirc;ssis" /></a>
+			
+			<p>
+				Pour terminer cette section, quelques photos du robot assembl&eacute;.
+			</p>
+			<a href="Robot_Terminated_1.jpg"><img src="Robot_Terminated_1.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_3.jpg"><img src="Robot_Terminated_3.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			<a href="Robot_Terminated_4.jpg"><img src="Robot_Terminated_4.jpg" width="320" alt="Robot termin&eacute;" /></a>
+			
+			<h3>Logiciel</h3>
+			<p>
+				L'IA du robot est g&eacute;r&eacute;e par le microcontr&ocirc;leur PIC plac&eacute; sur le circuit &agrave; un endroit peu accessible (on arrive à l'extirper et &agrave; le remettre avec un peu d'entra&icirc;nement). Un des pr&eacute;requis du logiciel embarqu&eacute; &eacute;tait qu'il soit facilement modifiable sans devoir tout d&eacute;monter.
+				Pour cela, j'avais pr&eacute;vu une liaison s&eacute;rie entre le PC et le microcontr&ocirc;leur (la connectique 3 broches situ&eacute;e &agrave; l'arri&egrave;re du robot).
+				Un programme PC d&eacute;velopp&eacute; pour l'occasion permet de se connecter au robot &agrave; l'aide d'un c&acirc;ble s&eacute;rie FTDI pour lire la tension de la batterie, la distance renvoy&eacute;e par le capteur et pour mettre &agrave; jour le firmware.
+			</p>
+			
+			<p>
+				J'ai commenc&eacute; par &eacute;crire un bootloader permettant de mettre &agrave; jour le firmware du robot. Ce bootloader se lance d&egrave;s que le microcontr&ocirc;leur est mis sous tension et attend une commande pr&eacute;cise sur l'UART pour flasher un firmware. Si la commande n'est pas re&ccedil;ue avant 200ms, le bootloader charge le firmware et lui passe la main.
+				Si la bonne commande est re&ccedil;ue &agrave; temps, le bootloader passe en mode "mise &agrave; jour du firmware". Il re&ccedil;oit ensuite les instructions du firmware depuis l'UART et les &eacute;crit dans la m&eacute;moire flash. Une fois que le firmware est compl&egrave;tement flash&eacute;, le bootloader reboote le microcontr&ocirc;leur (l'architecture PIC18 dispose de instruction <strong>reset</strong> qui effectue un vrai reset software).<br />
+				Le bootloader a permis de flasher le tout premier firmware, qui, comme la tradition l'exige, est le "hello world" de l'embarqu&eacute; : faire clignoter la led.
+			</p>
+			<iframe class="Project_Video" width="853" height="480" src="https://www.youtube.com/embed/ontflyjGHe4" frameborder="1"></iframe>
+			
+			<p>
+				Une fois le bootloader fonctionnel, j'ai pu m'attaquer au firmware. Il &eacute;tait maintenant ais&eacute; de le mettre &agrave; jour sur le robot.<br />
+				Le firmware est compos&eacute; de deux parties : la gestion des diff&eacute;rents sous-syst&egrave;mes et l'intelligence artificielle &agrave; proprement parler.
+			</p>
+			<p>
+				Les sous-syst&egrave;mes sont au nombre de quatre :
+			</p>
+			<ul>
+				<li>Gestion des moteurs (g&eacute;n&eacute;ration des signaux PWM)</li>
+				<li>Mesure de la distance avec l'objet le plus proche</li>
+				<li>Surveillance de la batterie</li>
+				<li>Communication avec le PC via l'UART</li>
+			</ul>
+			<p>
+				Chaque sous-syt&egrave;me tourne en t&acirc;che de fond &agrave; l'aide d'interruptions. Ainsi, le code de l'intelligence artificielle peut bloquer aussi longtemps qu'il le souhaite sans alt&eacute;rer les fonctions vitales du syst&egrave;me.<br />
+				Par mesure de s&eacute;curit&eacute;, la tension de la batterie est mesur&eacute;e toutes les secondes. Le robot se met en protection (il coupe tout) si la batterie est trop faible.
+			</p>
+			
+			<p>
+				Apr&egrave;s avoir mis en place tous les sous-syst&egrave;mes, il devenait possible de coder une IA. La premi&egrave;re IA de test est tr&egrave;s basique :
+			</p>
+			<ul>
+				<li>Le robot avance toujours tout droit.</li>
+				<li>Si un obstacle est d&eacute;tect&eacute; &agrave; moins de 40cm, il tourne de 90° &agrave; droite et poursuit sa route.</li>
+				<li>Si un obstacle est d&eacute;tect&eacute; &agrave; moins de 15cm, il recule un instant puis tourne &agrave; droite. Il reprend alors sa route en marche avant.</li>
+			</ul>
+			<p>
+				Cette IA donne des r&eacute;sultats assez efficaces lorsque la pi&egrave;ce est de taille convenable. Le robot a plus de mal dans une petite surface comme dans la vid&eacute;o ci-dessous.
+				Il se fraye un chemin en tapant dans les obstacles mais ne reste jamais coinc&eacute; tr&egrave;s longtemps.<br />
+				L'inconv&eacute;nient de cette IA est son d&eacute;terminisme qui la rend lassante &agrave; la longue. Le robot effectue tr&egrave;s souvent les m&ecirc;mes parcours.
+			</p>
+			<iframe class="Project_Video" width="853" height="480" src="https://www.youtube.com/embed/U-YoC-qewCo" frameborder="1"></iframe>
+			
+			<p>
+				J'ai d&eacute;velopp&eacute; une seconde IA bas&eacute;e sur la pr&eacute;c&eacute;dente mais utilisant un peu d'al&eacute;atoire. Le robot choisit une direction au hasard lorsqu'il doit tourner plut&ocirc;t que de toujours tourner &agrave; droite.
+				Il n'est cependant pas possible de choisir une direction al&eacute;atoire &agrave; chaque tournant car le robot risque de faire du surplace en changeant de direction &agrave; chaque obstacle.<br />
+				Ce probl&egrave;me peut &ecirc;tre &eacute;vit&eacute; en conservant la direction choisie pendant 4 secondes, un temps suffisamment long pour que le robot puisse effectuer un tournant &agrave; 270°, ce qui est suffisant la plupart du temps.
+			</p>
+			<p>
+				Voici cette IA en vid&eacute;o :
+			</p>
+			<iframe class="Project_Video" width="853" height="480" src="https://www.youtube.com/embed/lZxErqgatnY" frameborder="1" ></iframe>
+			
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				Page cr&eacute;&eacute;e le 15/11/2015.<br />
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>
