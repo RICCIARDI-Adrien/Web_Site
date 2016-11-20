@@ -1,0 +1,171 @@
+/** @file Style_Print.css
+ * A lighter stylesheet allowing to print the CV.
+ * @author Adrien RICCIARDI
+ */
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Global settings */
+/*-----------------------------------------------------------------------------------------------*/
+body
+{
+	background-color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Menu */
+/*-----------------------------------------------------------------------------------------------*/
+.Menu
+{
+	display: none;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Page body */
+/*-----------------------------------------------------------------------------------------------*/
+.Page_Body
+{
+	display: block;
+	background-color: white;
+}
+
+/* Big titles */
+.Page_Body h1
+{
+	text-align: center;
+	color: black;
+	font-size: 20pt;
+}
+
+.Page_Body strong
+{
+	font-weight: bold;
+	color: black;
+}
+
+.W3C_Validator
+{
+	display: none;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Images */
+/*-----------------------------------------------------------------------------------------------*/
+.Page_Body a:visited img, .Page_Body a:active img, .Page_Body a img
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	/* Image centering */
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.Page_Body a:hover img
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 2px;
+	border-color: #585858; /* Grey */
+	/* Image centering */
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.Centered_Image
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	/* Image centering */
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+#Home_Image
+{
+	display: block;
+	border: none;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.Project_Title_Image
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	/* Image centering */
+	margin-top: 40px;
+	margin-right: 60px; /* Give some space to the following title text */
+	margin-bottom: 40px;
+	float: left;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/* Links */
+/*-----------------------------------------------------------------------------------------------*/
+.Page_Body a, .Page_Body a:visited
+{
+	font-weight: normal;
+	color: #999999; /* Light grey */
+}
+
+.Page_Body a:hover, .Page_Body li a:hover
+{
+	font-weight: normal;
+	color: #6666FF; /* Blue */
+}
+
+/*-----------------------------------------------------------------------------------------------*/ 
+/* CV */
+/*-----------------------------------------------------------------------------------------------*/
+/* Sections title */
+.Page_Body h2
+{
+	display: block;
+	color: blue;
+	font-size: 18pt;
+}
+
+/*-----------------------------------------------------------------------------------------------*/ 
+/* Projects */
+/*-----------------------------------------------------------------------------------------------*/
+.Project_Video
+{
+	display: block;
+	/* Center the video */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*-----------------------------------------------------------------------------------------------*/ 
+/* Home page */
+/*-----------------------------------------------------------------------------------------------*/
+#Home_Counter_Text
+{
+	display: block;
+	float: left;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 10px;
+	color: green;
+}
+
+#Home_Counter_Image
+{
+	display: block;
+	border: none;
+}
