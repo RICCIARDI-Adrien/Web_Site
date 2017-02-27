@@ -1,0 +1,167 @@
+<!-- Use transitional XHTML to pass W3C validation while embedding Youtube videos -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Horloge num&eacute;rique simple et robuste</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../Style.css" type="text/css" rel="stylesheet" title="Style" />
+	</head>
+	<body>
+		<ul class="Menu">
+			<li><a href="../../index.html">Page d'accueil</a></li>
+			<li><a href="../../CV.html">Curriculum Vitae</a></li>
+			<li id="Menu_Tab_Selected_Clickable"><a href="../../Hardware_Projects.html">Electronique</a></li>
+			<li><a href="../../Software_Projects.html">Informatique</a></li>
+			<li><a href="../../Links.html">Liens</a></li>
+		</ul>
+
+		<div class="Page_Body">
+			<h1>Horloge num&eacute;rique simple et robuste</h1>
+			<a href="Case_Front_Backlight_On.jpg"><img src="Case_Front_Backlight_On.jpg" width="320" alt="Horloge termin&eacute;e et r&eacute;tro&eacute;clair&eacute;e" /></a>
+
+			<p>
+				Qui n'a jamais pest&eacute; contre les mauvais contacts des interrupteurs d'un r&eacute;veil ? C'est &agrave; cause de r&eacute;veils parfaitement fonctionnels mais aux boutons capricieux que j'ai d&eacute;cid&eacute; de construire ma propre horloge.<br />
+				Mon r&eacute;veil ne dispose que de deux robustes boutons. Un interrupteur &agrave; levier qui permet d'activer ou de d&eacute;sactiver l'alarme et un bouton poussoir anti-vandalisme qui active le r&eacute;tro&eacute;clairage de l'&eacute;cran. Ces deux boutons permettent aussi de couper l'alarme lorsqu'elle sonne.<br />
+				C'est &agrave; l'aide d'un port s&eacute;rie que les diff&eacute;rents r&eacute;glages de l'horloge sont faits.<br />
+				Les r&eacute;glages peuvent &ecirc;tre r&eacute;alis&eacute;s &agrave; partir d'un PC &agrave; l'aide d'un programme en ligne de commande ou via un t&eacute;l&eacute;phone ou une tablette gr&acirc;ce &agrave; une application Android.
+			</p>
+			
+			<p>
+				Ce projet a aussi &eacute;t&eacute; d&eacute;crit sur <a href="https://www.elektormagazine.com/labs/robust-and-simple-digital-clock">Elektor Labs</a>.
+			</p>
+			
+			<h3>Caract&eacute;ristiques techniques</h3>
+			<ul>
+				<li>Ecran LCD r&eacute;tro&eacute;clair&eacute; de 2 lignes de 16 caract&egrave;res.</li>
+				<li>Deux boutons seulement. Le r&eacute;glage de l'horloge se fait par un port s&eacute;rie.</li>
+				<li>Alimentation secteur via un chargeur standard de t&eacute;l&eacute;phone d&eacute;livrant 1A sous 5V (n'importe quel chargeur fournissant plus de 150mA sous 5V convient).</li>
+				<li>Gestion du temps assur&eacute;e par une Real-Time Clock (RTC) <a href="https://datasheets.maximintegrated.com/en/ds/DS1307.pdf">DS1307</a>, elle-m&ecirc;me sauvegard&eacute;e par batterie en cas de coupure secteur.</li>
+				<li>Affichage de la temp&eacute;rature de la pi&egrave;ce &agrave; l'aide d'un capteur <a href="http://www.ti.com/lit/ds/symlink/lm35.pdf">LM35DZ.</a></li>
+				<li>Un microcontr&ocirc;leur <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/30292D.pdf">PIC16F876</a> g&egrave;re le syst&egrave;me.</li>
+			</ul>
+			
+			<h3>M&eacute;canique</h3>
+			<p>
+				Le bo&icirc;tier se devait d'&ecirc;tre compos&eacute; de plaques en acier. Sur la face avant se trouvent l'&eacute;cran ainsi que l'interrupteur &agrave; levier qui permet d'activer ou de d&eacute;sactiver l'alarme.<br />
+				L'arri&egrave;re du bo&icirc;tier accueille le jack d'alimentation et le port s&eacute;rie (m&ecirc;me c&acirc;ble que pour le robot <a href="http://adrien-ricciardi.pagesperso-orange.fr/Projects/Explorer/Explorer.html">Explorer</a>).
+			</p>
+			<a href="Case_Rear.jpg"><img src="Case_Rear.jpg" width="320" alt="Arri&egrave;re du bo&icirc;tier" /></a>
+			<p>
+				La face sup&eacute;rieure comporte un unique bouton blind&eacute; qui permet d'allumer le r&eacute;tro&eacute;clairage de l'&eacute;cran et de couper l'alarme lorsqu'elle sonne.
+			</p>
+			<a href="Case_Top.jpg"><img src="Case_Top.jpg" width="320" alt="Horloge vue de dessus" /></a>
+			
+			<h3>Electronique</h3>
+			<p>
+				Le sch&eacute;ma &eacute;lectrique du r&eacute;veil (disponible sur <a href="https://github.com/RICCIARDI-Adrien/Clock">GitHub</a>, tout comme le code source) est simple. Le but &eacute;tait de limiter les connexions vers l'&eacute;cran pour &eacute;viter de tirer trop de fils et faciliter la r&eacute;alisation du circuit sur une plaque d'essais.
+			</p>
+			<a href="https://raw.githubusercontent.com/RICCIARDI-Adrien/Clock/master/Hardware/Main_Board.png"><img src="https://raw.githubusercontent.com/RICCIARDI-Adrien/Clock/master/Hardware/Main_Board.png" width="320" alt="Sch&eacute;ma &eacute;lectrique" /></a>
+			<p>
+				Le r&eacute;tro&eacute;clairage de l'&eacute;cran consomme trop de courant (100mA sous 5V) pour que le r&eacute;veil soit aliment&eacute; par pile. J'ai pr&eacute;f&eacute;r&eacute; utiliser une alimentation &agrave; d&eacute;coupage de t&eacute;l&eacute;phone plut&ocirc;t qu'une classique alimentation transfo + pont de diodes + r&eacute;gulateur lin&eacute;aire pour deux raisons :
+			</p>
+			<ul>
+				<li>L'alimentation &agrave; d&eacute;coupage est bien plus &eacute;conome en &eacute;nergie qu'une alimentation lin&eacute;aire (sachant que l'horloge va fonctionner 24h/24).</li>
+				<li>Cela &eacute;vite de mettre des condensateurs &eacute;lectrolytiques sur le circuit, ce qui rend le circuit plus r&eacute;sistant au temps.</li>
+			</ul>
+			
+			<a href="Circuit_Top.jpg"><img src="Circuit_Top.jpg" width="320" alt="Circuit vu de dessus" /></a>
+			<p>
+				La RTC est connect&eacute;e au bus I2C du microcontr&ocirc;leur. Elle utilise un quartz de 32KHz pour compter les heures et la date. Une pile au lithium permet &agrave; la RTC de continuer &agrave; fonctionner m&ecirc;me en cas de coupure du courant, ce qui est pratique en cas de micro coupure du secteur car l'heure de sonnerie de l'alarme est stock&eacute;e dans la RAM de la RTC.<br />
+				Une pile au lithium CR2032 convient parfaitement pour assurer la sauvegarde des donn&eacute;es de la RTC pendant 10 ans. La pile utilis&eacute;e ici est une CR2430 pour la simple et bonne raison que c'&eacute;tait le seul support de pile au lithium qui me restait.
+			</p>
+			
+			<p>
+				En dessous de la pile se trouve un buzzer plac&eacute; verticalement. Il est reli&eacute; &agrave; un des PWM du microcontr&ocirc;leur pour permettre la modulation du son (m&ecirc;me si le PWM n'est pas n&eacute;cessaire pour la sonnerie que j'ai choisie).
+			</p>
+			
+			<p>
+				On aper&ccedil;oit &agrave; droite du buzzer un transistor en bo&icirc;tier TO-225 mont&eacute; lui aussi verticalement. Ce transistor commande le r&eacute;tro&eacute;clairage de l'&eacute;cran car un port du PIC ne fournit pas assez de courant.
+			</p>
+			
+			<p>
+				Pour terminer, on voit en haut &agrave; droite le capteur de temp&eacute;rature en bo&icirc;tier TO-92.
+			</p>
+			<a href="Circuit_Bottom.jpg"><img src="Circuit_Bottom.jpg" width="320" alt="Circuit vu de dessous" /></a>
+			<p>
+				Comme d'habitude, les pistes du circuit sont r&eacute;alis&eacute;es avec de la soudure.
+			</p>
+			
+			<h3>Logiciel</h3>
+			<p>
+				Le firmware du microcontr&ocirc;leur est tr&egrave;s simple. L'unique pin d'interruption externe du PIC est c&acirc;bl&eacute; sur bouton poussoir situ&eacute; sur la partie sup&eacute;rieure du r&eacute;veil.
+			</p>
+			<ul>
+				<li>boucle infinie
+					<ul>
+						<li>s'il y a de l'activit&eacute; sur l'UART, r&eacute;glage de l'heure, de la date et de l'heure de l'alarme</li>
+						<li>lecture de la date et de l'heure depuis la RTC</li>
+						<li>lecture de la temp&eacute;rature</li>
+						<li>affichage de l'heure, de la temp&eacute;rature et de la date sur l'&eacute;cran</li>
+						<li>si l'heure de sonner est arriv&eacute;e, faire sonner le buzzer</li>
+						<li>attente du signal &agrave; 1Hz g&eacute;n&eacute;r&eacute; par la RTC</li>
+					</ul>
+				</li>
+				<li>routine d'interruption
+					<ul>
+						<li>gestion d'un timer pour la sonnerie de l'alarme</li>
+						<li>gestion d'un timer pour le r&eacute;tro&eacute;clairage de l'&eacute;cran</li>
+						<li>gestion de l'appui sur le bouton poussoir du dessus du bo&icirc;tier</li>
+					</ul>
+				</li>
+			</ul>
+			
+			<p>
+				Un programme en ligne de commande permet de r&eacute;gler tous les param&egrave;tres de l'horloge via le port s&eacute;rie. Il fonctionne sous Linux, BSD et Windows (via MinGW ou Cygwin).
+			</p>
+			<p>
+				J'ai aussi &eacute;crit une application Android permettant de r&eacute;gler l'horloge depuis un smartphone ou une tablette.
+			</p>
+			<a href="Android_Application_Main_Screen.png"><img src="Android_Application_Main_Screen.png" width="320" alt="Application Android" /></a>
+			<a href="Android_Application_Clock_Configured.png"><img src="Android_Application_Clock_Configured.png" width="320" alt="Application Android" /></a>
+			
+			<h3>R&eacute;alisation</h3>
+			<p>
+				Les divers composants de l'horloge ont d'abord &eacute;t&eacute; test&eacute;s &agrave; l'aide d'une carte EasyPIC 7. La vid&eacute;o ci-dessous montre le test de la sonnerie de l'alarme.
+			</p>
+			<iframe class="Project_Video" width="641" height="360" src="https://www.youtube.com/embed/_xasXBTCr9Q" frameborder="1" ></iframe>
+			
+			<p>
+				J'ai ensuite r&eacute;alis&eacute; le circuit en tenant compte des dimensions des plaques en acier et de la position des trous pr&eacute;-perc&eacute;s.<br />
+				J'ai alors pu commencer &agrave; assembler le bo&icirc;tier :
+			</p>
+			<a href="Case_Making_1.jpg"><img src="Case_Making_1.jpg" width="320" alt="Assemblage du bo&icirc;tier" /></a>
+			<a href="Case_Making_2.jpg"><img src="Case_Making_2.jpg" width="320" alt="Assemblage du bo&icirc;tier" /></a>
+			<a href="Case_Making_3.jpg"><img src="Case_Making_3.jpg" width="320" alt="Assemblage du bo&icirc;tier" /></a>
+			<a href="Case_Making_4.jpg"><img src="Case_Making_4.jpg" width="320" alt="Assemblage du bo&icirc;tier" /></a>
+			<a href="Case_Making_5.jpg"><img src="Case_Making_5.jpg" width="320" alt="Assemblage du bo&icirc;tier" /></a>
+			
+			<p>
+				Premier test d'allumage du circuit mont&eacute; dans le bo&icirc;tier :
+			</p>
+			<iframe class="Project_Video" width="641" height="360" src="https://www.youtube.com/embed/goeCTPRYkF8" frameborder="1" ></iframe>
+			
+			<p>
+				Fermeture du bo&icirc;tier.
+			</p>
+			<a href="Case_Finished_1.jpg"><img src="Case_Finished_1.jpg" width="320" alt="Bo&icirc;tier termin&eacute;" /></a>
+			<a href="Case_Finished_2.jpg"><img src="Case_Finished_2.jpg" width="320" alt="Bo&icirc;tier termin&eacute;" /></a>
+			<a href="Case_Finished_3.jpg"><img src="Case_Finished_3.jpg" width="320" alt="Bo&icirc;tier termin&eacute;" /></a>
+			
+			<p>
+				Et pour finir, une petite d&eacute;mo du fonctionnement du r&eacute;veil :
+			</p>
+			<iframe class="Project_Video" width="641" height="360" src="https://www.youtube.com/embed/97vKgKm4-Rc" frameborder="1" ></iframe>
+			
+			<p>
+			</p>
+			<a href="../../Hardware_Projects.html">Retour au menu des projets</a>
+			
+			<p>
+				Page cr&eacute;&eacute;e le 27/02/2017.<br />
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+			</p>
+		</div>
+	</body>
+</html>
