@@ -17,6 +17,12 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+a
+{
+	/* Disable text selection rectangle when clicking on a link */
+	outline: none;
+}
+
 /*-----------------------------------------------------------------------------------------------*/
 /* Menu */
 /*-----------------------------------------------------------------------------------------------*/
@@ -191,18 +197,35 @@ body
 	margin-bottom: 40px;
 }
 
-.Project_Title_Image
+/* "Page_Body_Projects" class overwrites some "Page_Body" styles to allow text to be displayed at the right of clickable images */
+.Page_Body_Projects a:visited img, .Page_Body_Projects a:active img, .Page_Body_Projects a img
 {
 	display: block;
 	/* Border */
 	border-style: solid;
 	border-width: 1px;
 	border-color: black;
-	/* Image centering */
+	/* Image position */
 	margin-top: 40px;
 	margin-right: 60px; /* Give some space to the following title text */
 	margin-bottom: 40px;
 	float: left;
+}
+
+.Page_Body_Projects a:hover img
+{
+	display: block;
+	/* Border */
+	border-style: solid;
+	border-width: 1px;
+	border-color: #585858; /* Grey */
+	/* Image position */
+	margin-top: 40px;
+	margin-right: 60px; /* Give some space to the following title text */
+	margin-bottom: 40px;
+	float: left;
+	/* Make image fade a bit */
+	opacity: 0.6;
 }
 
 /*-----------------------------------------------------------------------------------------------*/
