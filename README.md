@@ -1,3 +1,4 @@
 # Web Site
-My personal web site hosted at http://adrien-ricciardi.pagesperso-orange.fr  
-This is a fully-static web site that needs only a HTTP server to work.
+
+My old and obsolete personal web site. You can browse it [here](http://ricciardi-adrien.github.io/Web_Site).  
+This is a fully-static web site that only needs a HTTP server to work.
